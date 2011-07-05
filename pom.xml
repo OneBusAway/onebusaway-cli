@@ -7,7 +7,7 @@
   </parent>
   <groupId>org.onebusaway</groupId>
   <artifactId>onebusaway-cli</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>onebusaway-cli</name>
 
@@ -19,9 +19,9 @@
   </repositories>
 
   <scm>
-    <connection>scm:svn:http://onebusaway.googlecode.com/svn/onebusaway-cli/tags/onebusaway-cli-1.0.0</connection>
-    <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/onebusaway-cli/tags/onebusaway-cli-1.0.0</developerConnection>
-    <url>http://code.google.com/p/onebusaway/source/browse/#svn/onebusaway-cli/tags/onebusaway-cli-1.0.0</url>
+    <connection>scm:svn:http://onebusaway.googlecode.com/svn/onebusaway-cli/trunk</connection>
+    <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/onebusaway-cli/trunk</developerConnection>
+    <url>http://code.google.com/p/onebusaway/source/browse/#svn/onebusaway-cli/trunk</url>
   </scm>
 
 

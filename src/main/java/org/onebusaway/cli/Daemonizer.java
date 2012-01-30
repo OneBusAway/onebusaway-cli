@@ -3,6 +3,7 @@ package org.onebusaway.cli;
 import static com.sun.akuma.CLibrary.LIBC;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -233,18 +234,18 @@ public class Daemonizer {
       super.closeDescriptors();
 
       if (redirectErrorToOutput) {
-        PrintStream stream = new PrintStream(_outputFile);
+        PrintStream stream = new PrintStream(new FileOutputStream(_outputFile, true));
         System.setOut(stream);
         System.setErr(stream);
       } else if (redirectOutputToError) {
-        PrintStream stream = new PrintStream(_errorFile);
+        PrintStream stream = new PrintStream(new FileOutputStream(_errorFile, true));
         System.setOut(stream);
         System.setErr(stream);
       } else {
         if (_outputFile != null)
-          System.setOut(new PrintStream(_outputFile));
+          System.setOut(new PrintStream(new FileOutputStream(_outputFile, true)));
         if (_errorFile != null)
-          System.setErr(new PrintStream(_errorFile));
+          System.setErr(new PrintStream(new FileOutputStream(_errorFile, true)));
       }
     }
 

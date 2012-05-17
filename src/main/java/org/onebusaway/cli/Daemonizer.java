@@ -314,6 +314,9 @@ public class Daemonizer {
     }
 
     public void debug(String string) {
+      if (!isDebugEnabled()) {
+        return;
+      }
       try {
         PrintWriter out = new PrintWriter(new FileWriter(
             System.getProperty(DEBUG_LOG_FILE), true));

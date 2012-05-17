@@ -249,11 +249,13 @@ public class Daemonizer {
       super.closeDescriptors();
 
       if (redirectErrorToOutput) {
-        PrintStream stream = new PrintStream(new FileOutputStream(_outputFile, true));
+        PrintStream stream = new PrintStream(new FileOutputStream(_outputFile,
+            true));
         System.setOut(stream);
         System.setErr(stream);
       } else if (redirectOutputToError) {
-        PrintStream stream = new PrintStream(new FileOutputStream(_errorFile, true));
+        PrintStream stream = new PrintStream(new FileOutputStream(_errorFile,
+            true));
         System.setOut(stream);
         System.setErr(stream);
       } else {
@@ -301,13 +303,20 @@ public class Daemonizer {
 
   private static class MyLog {
 
+    private static final String DEBUG_LOG_FILE = Daemonizer.class.getName()
+        + ".debugLogFile";
+
+    private boolean _enabled = System.getProperties().containsKey(
+        DEBUG_LOG_FILE);
+
     public boolean isDebugEnabled() {
-      return true;
+      return _enabled;
     }
 
     public void debug(String string) {
       try {
-        PrintWriter out = new PrintWriter(new FileWriter("/tmp/log.out", true));
+        PrintWriter out = new PrintWriter(new FileWriter(
+            System.getProperty(DEBUG_LOG_FILE), true));
         out.println(string);
         out.flush();
         out.close();
